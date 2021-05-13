@@ -1,0 +1,235 @@
+﻿/*#region Tag Selectors*/
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 95%;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+wysiwyg, toolbar, filebar, buttonbar {
+    min-width: 1000px;
+    position: absolute;
+}
+
+wysiwyg {
+    height: 600px;
+    box-shadow: 5px 5px 5px #888;
+    background-color: #fafafa;
+    border: 2px solid #dadada;
+}
+
+toolbar {
+    height: 42px;
+}
+
+editor {
+    width: 960px;
+    height: 525px;
+    position: absolute;
+    overflow: auto;
+    cursor: default;
+    background-color: #fff;
+    padding: 10px 15px;
+    border: 1px solid #dadada;
+    margin: 44px 0 0 5px;
+}
+    editor:focus {
+        outline: none;
+        border: 1px solid #f4b124;
+    }
+
+filebar {
+    height: 40px;   
+    margin-top: 464px;
+    padding: 10px 0;
+}
+
+buttonbar {
+    height: 56px;
+    padding: 16px 0 10px 0;
+    margin-top: 524px;
+}
+
+/*endregion Tag Selectors*/
+
+/*#region Class Selectors*/
+
+.button {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin: 4px 0 0 5px;
+}
+    .button:hover {
+        border-color: #f4b124;
+        background-color: #ffebc1;
+    }
+
+.s-size {
+    width: 32px;
+}
+
+.l-size {
+    width: 90px;
+}
+
+.on {
+    box-shadow: inset 0 3px 5px #f4b124;
+    border-color: #f4b124;
+    background-color: #ffebc1;
+}
+.color-input {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.file-div input {
+    width: 500px;
+    height: 70%;
+    outline: none;
+    color: #595f6e;
+    background-color: #fafafa;
+    padding-top: 30px;
+    border: none;
+    margin-left: 10px;
+}
+
+.file-div label {
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0%;   
+    border-bottom: 1px solid #595f6e;
+    
+}
+    .file-div label::after {
+        width: 100%;
+        height: 100%;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        border-bottom: 5px solid #f4b124;
+    }
+
+.content-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    color: #8e8e8e;
+    transition: all .3s ease;
+    margin-left: 10px;
+}
+
+.file-div input:focus + .label-name .content-name,
+.file-div input:valid + .label-name .content-name {
+    font-size: 14px;
+    color: #f4b124;
+    transform: translateY(-150%);
+}
+
+.file-div input:focus + .label-name::after,
+.file-div input:valid + .label-name::after {
+    transform: translateX(0);
+}
+
+/*endregion Class Selectors*/
+
+/*#region Pseudo-elements*/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffebc1;
+}
+    ::-webkit-scrollbar-thumb:hover {
+        cursor: wait;
+        box-shadow: inset 0 3px 5px #f4b124;
+        border-color: #f4b124;
+        background-color: #ffebc1;
+    }
+
+/*endregion Pseudo-elements*/
+
+/*region Medias*/
+
+@media (max-width : 1024px) {
+    wysiwyg, toolbar, filebar, buttonbar {
+        min-width: 740px;
+    }
+
+    editor {
+        width: 700px;
+    }
+}
+
+@media (max-width : 520px) {
+    html, body {
+        height: 100%;
+    }
+
+    wysiwyg, toolbar, filebar, buttonbar {
+        min-width: 318px;
+    }
+
+    toolbar {
+        height: 84px;
+    }
+
+    editor {
+        width: 278px;
+        margin: 85px 0 0 5px;
+        height: 350px;
+    }
+
+    .file-div input {
+        width: 300px;
+    }
+
+    .l-size {
+        margin: 4px 0 0 10px;
+    }
+}
+
+@media(max-width: 320px) {
+    body {
+        padding: 20px;
+    }
+
+    editor {
+        height: 330px;
+    }
+
+    filebar {
+        margin-top: 436px;
+    }
+    buttonbar {
+    margin-top: 494px;
+    }
+}
+/*endregion Medias*/
